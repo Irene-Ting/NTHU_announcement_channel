@@ -12,7 +12,7 @@ class Command(BaseCommand):
         news_list = News.objects.get_not_published()
         for news in news_list:
             tg.send_msg(news.category, news.title, news.url)
-            # line.send_msg(news.dep, news.title, news.url)
+            line.send_msg(news.dep, news.title, news.url)
             # 將該筆資料改成已傳送
             news.published = True
             news.save()

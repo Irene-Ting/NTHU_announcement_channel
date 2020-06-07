@@ -59,7 +59,7 @@ ROOT_URLCONF = 'NTHU_announcement_channel.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates').replace('\\', '/')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,5 +128,5 @@ STATIC_URL = '/static/'
 
 TG_BOT_TOKEN = env('TG_BOT_TOKEN')
 TG_CHAT_ID = env('TG_CHAT_ID')
-LINE_CHANNEL_ACCESS_TOKEN = ''
-LINE_CHANNEL_SECRET = ''
+LINE_CLIENT_ID = env('LINE_CLIENT_ID')
+LINE_CLIENT_SECRET = env('LINE_CLIENT_SECRET')

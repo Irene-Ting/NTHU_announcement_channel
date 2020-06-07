@@ -11,7 +11,7 @@ class NewsManager(models.Manager):
             return False
         else:
             News.objects.create(school=school, dep=dep, category=category, title=title, url=url)
-
+            
     @staticmethod
     def get_not_published():
         return News.objects.filter(published=False)
@@ -31,3 +31,12 @@ class News(models.Model):
 
     def __str__(self):
         return f"{self.school} {self.dep} {self.title} {self.published}"
+
+
+class line_user(models.Model):
+    token = models.CharField(max_length=50, verbose_name='access token', default='')
+    target_type = models.CharField(max_length=5, verbose_name='target type', default='')
+    target = models.CharField(max_length=50, verbose_name='target', default='')
+    
+    def __str__(self):
+        return f"{self.target}"

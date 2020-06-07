@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
+from backend.MSG import line
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', line.auth),
+    url(r'^callback\/', line.callback),
 ]

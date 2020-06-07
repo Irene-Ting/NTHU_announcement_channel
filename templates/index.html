@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+        function oAuth2() {
+            var URL = 'https://notify-bot.line.me/oauth/authorize?';
+            URL += 'response_type=code';
+            URL += '&client_id=WiIUperLyahVDV3QTPV3S4';
+            URL += '&redirect_uri=http://127.0.0.1:8000/callback/';
+            URL += '&scope=notify';
+            URL += '&state=NO_STATE';
+            window.location.href = URL;
+        }
+        </script>
+    </head>
+    <body>
+        <button onclick="oAuth2();"> Subscribe </button>
+    </body>
+</html>

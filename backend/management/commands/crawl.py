@@ -13,7 +13,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         """Crawl the specific school
         """
-        with open(f"{settings.BASE_DIR}/backend/crawler/url_list.json", 'r') as f:
+        with open(f"{settings.BASE_DIR}/backend/crawler/url_list.json", 'r', encoding="utf-8") as f:
             schools = json.loads(f.read())
 
         for sc in options['schools']:
