@@ -25,22 +25,16 @@ def send_msg(office, title, link):
 
 
 def auth(request):
-    ''' the annotation can not work
+    # the annotation can not work
     url = 'https://notify-bot.line.me/oauth/authorize?'
-    PARAMS = {'response_type': 'code', 
-            'client_id': line_client_id,
-            'redirect_uri': 'http://127.0.0.1:8000/callback/',
-            'scope': 'notify', 
-            'state': 'NO_STATE'
-    }
-    r = requests.get(url, params = PARAMS)
+    response_type = 'code'
+    client_id = line_client_id
+    redirect_uri = 'http://127.0.0.1:8000/callback/'
+    scope = 'notify'
+    state = 'NO_STATE'
+    url = f'{url}response_type={response_type}&client_id={client_id}&redirect_uri={redirect_uri}&scope={scope}&state={state}'
 
-    if(r.ok):
-        return redirect(r.url)
-    else:
-        HttpResponse("Error")'''
-
-    return render(request, "index.html", locals())
+    return redirect(url)
 
 
 def callback(request):
